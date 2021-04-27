@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:gravity="center_horizontal"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Welcome to Chat-a-bit"
+        android:textColor="@color/teal_green_dark"
+        android:layout_margin="5dp"
+        android:textSize="26sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verify Your Number"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please enter your mobile number.You will get a SMS including a verification code"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_margin="5dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        >
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccpCountryCOde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <EditText
+            android:id="@+id/etPhoneNumberLoginActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="XXX XXXX XXX"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:autofillHints="phoneNational" />
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btSubmitPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_margin="20dp"
+        android:enabled="false"
+        android:onClick="showConfirmationDialog"
+        />
+</LinearLayout>

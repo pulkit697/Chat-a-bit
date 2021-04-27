@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:gravity="center_horizontal"
+    tools:context=".OtpActivity">
+    <TextView
+        android:id="@+id/tvVerifyNumberOtpActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textColor="@color/teal_green_dark"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_margin="10dp"
+        android:text="Verify number"/>
+    <TextView
+        android:id="@+id/tvWaitingForOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Waiting to automatically detect SMS sent to"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/tvOtpResendCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_margin="5dp"/>
+    <EditText
+        android:id="@+id/etOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="------"
+        android:letterSpacing="0.8"
+        android:textSize="20sp"
+        android:inputType="phone"
+        android:maxLines="1"
+        android:maxLength="6"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/btVerifyCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="verify code"
+        android:layout_margin="10dp"/>
+    <Button
+        android:id="@+id/btResendSMS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="resend sms"
+        android:layout_margin="10dp"
+        android:enabled="false"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="You will be send a verification code.You might be charged for this service.Standard rates apply."
+        android:gravity="bottom"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="0dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:textStyle="italic"
+        />
+</LinearLayout>
