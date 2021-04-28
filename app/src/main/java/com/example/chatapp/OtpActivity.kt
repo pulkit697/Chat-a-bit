@@ -90,7 +90,8 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                     if(::progressDialog.isInitialized)
                         progressDialog.dismiss()
                     if (it.isSuccessful) {
-                        /* go to profile page */
+                        startActivity(Intent(this,SignUpActivity::class.java))
+                        finish()
                     }else {
                         notifyUserForRetry("Invalid Verification code")
                     }
