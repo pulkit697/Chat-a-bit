@@ -3,4 +3,5 @@
     <string name="verify_number_text_view">Verify %s</string>
     <string name="waiting_for_otp_text_view">Waiting to automatically detect SMS sent to %s Wrong Number?</string>
     <string name="otp_counter">Seconds Remaining: %d</string>
+    <string name="yesterday">yesterday</string>
 </resources>
