@@ -1,9 +1,11 @@
-package com.example.chatapp
+package com.example.chatapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.example.chatapp.R
+import com.example.chatapp.adapters.ScreenSlideAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*

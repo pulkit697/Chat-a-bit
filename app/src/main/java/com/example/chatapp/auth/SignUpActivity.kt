@@ -1,4 +1,4 @@
-package com.example.chatapp
+package com.example.chatapp.auth
 
 import android.Manifest
 import android.app.ProgressDialog
@@ -8,13 +8,15 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.example.chatapp.utils.DEFAULT_AVATAR_URL
-import com.example.chatapp.utils.IMAGE_FROM_GALLERY_REQUEST_CODE
-import com.example.chatapp.utils.READ_WRITE_PERMISSION_REQUEST_CODE
-import com.example.chatapp.utils.createProgressDialog
+import com.example.chatapp.*
+import com.example.chatapp.models.User
+import com.example.chatapp.ui.MainActivity
+import com.example.chatapp.util.DEFAULT_AVATAR_URL
+import com.example.chatapp.util.IMAGE_FROM_GALLERY_REQUEST_CODE
+import com.example.chatapp.util.READ_WRITE_PERMISSION_REQUEST_CODE
+import com.example.chatapp.util.createProgressDialog
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth

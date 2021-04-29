@@ -1,6 +1,7 @@
-package com.example.chatapp
+package com.example.chatapp.models
 
 import com.google.firebase.firestore.FieldValue
+import com.google.firestore.v1.DocumentTransform
 
 data class User(
         var name:String,
@@ -8,11 +9,11 @@ data class User(
         var uid:String,
         var status:String,
         var deviceToken:String,
-        var lastSeen: FieldValue
+        var online:Boolean
 )
 {
     /* empty constructor necessary for firebase to work well */
-    constructor() : this("","","","","", FieldValue.serverTimestamp())
+    constructor() : this("","","","","", false)
 
     constructor(name: String,imageUrl: String,uid: String):
             this(name,
@@ -20,7 +21,7 @@ data class User(
                     uid,
                     "Hey there! I am using ChatEx",
                     "",
-                    FieldValue.serverTimestamp()
+                    false
             )
 
 }

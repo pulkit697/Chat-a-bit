@@ -56,4 +56,14 @@ dependencies {
 
     // phone number hint request
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    // pagination
+    implementation 'androidx.paging:paging-runtime-ktx:2.1.2'
+    implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
+
+    // picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //flexbox
+    implementation 'com.google.android:flexbox:2.0.1'
 }

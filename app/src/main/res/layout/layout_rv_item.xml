@@ -9,6 +9,7 @@
     android:background="?attr/selectableItemBackground"
     android:padding="10dp">
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivUserImageRV"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:focusable="true"
@@ -27,7 +28,7 @@
             android:layout_height="match_parent"
             android:padding="2dp">
         <TextView
-            android:id="@+id/tvUserNameInRV"
+            android:id="@+id/tvUserNameRV"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -38,6 +39,7 @@
             android:textStyle="bold"
             />
             <TextView
+                android:id="@+id/tvLastMessageTimingRV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lines="1"
@@ -59,6 +61,7 @@
                 android:textSize="16sp"
                 android:text="Hey there! I am using ChatEx" />
             <TextView
+                android:id="@+id/tvUnreadMessagesBubbleRV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="6"

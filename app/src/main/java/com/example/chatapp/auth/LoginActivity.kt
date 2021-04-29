@@ -1,14 +1,13 @@
-package com.example.chatapp
+package com.example.chatapp.auth
 
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import com.example.chatapp.utils.KEY_PHONE_NUMBER
-import com.example.chatapp.utils.PHONE_NUMBER_REQUEST_CODE
+import com.example.chatapp.util.KEY_PHONE_NUMBER
+import com.example.chatapp.util.PHONE_NUMBER_REQUEST_CODE
+import com.example.chatapp.R
 import com.google.android.gms.auth.api.credentials.Credential
 import com.google.android.gms.auth.api.credentials.Credentials
 import com.google.android.gms.auth.api.credentials.CredentialsOptions
@@ -41,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
 
         val credentialsClient = Credentials.getClient(applicationContext,credentialOptions)
         val hintIntent = credentialsClient.getHintPickerIntent(hintRequest)
-        startIntentSenderForResult(hintIntent.intentSender,PHONE_NUMBER_REQUEST_CODE,null,0,0,0,
+        startIntentSenderForResult(hintIntent.intentSender, PHONE_NUMBER_REQUEST_CODE,null,0,0,0,
             Bundle()
         )
     }
@@ -54,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     "Is this OK, or would you like" +
                     "to edit the number?")
             setPositiveButton("OK") { _, _->
-                startActivity(Intent(this@LoginActivity,OtpActivity::class.java).putExtra(
+                startActivity(Intent(this@LoginActivity, OtpActivity::class.java).putExtra(
                     KEY_PHONE_NUMBER,phoneNumber))
             }
             setNegativeButton("EDIT"){ dialog, _ ->

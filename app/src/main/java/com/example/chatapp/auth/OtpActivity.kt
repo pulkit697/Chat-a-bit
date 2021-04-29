@@ -1,4 +1,4 @@
-package com.example.chatapp
+package com.example.chatapp.auth
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -12,8 +12,9 @@ import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.example.chatapp.utils.KEY_PHONE_NUMBER
-import com.example.chatapp.utils.createProgressDialog
+import com.example.chatapp.util.KEY_PHONE_NUMBER
+import com.example.chatapp.R
+import com.example.chatapp.util.createProgressDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -90,7 +91,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                     if(::progressDialog.isInitialized)
                         progressDialog.dismiss()
                     if (it.isSuccessful) {
-                        startActivity(Intent(this,SignUpActivity::class.java))
+                        startActivity(Intent(this, SignUpActivity::class.java))
                         finish()
                     }else {
                         notifyUserForRetry("Invalid Verification code")
@@ -143,7 +144,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun startLoginActivityAgain() {
-        startActivity(Intent(this@OtpActivity,LoginActivity::class.java)
+        startActivity(Intent(this@OtpActivity, LoginActivity::class.java)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
     }
 
@@ -157,7 +158,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
             override fun updateDrawState(ds: TextPaint) {
                 super.updateDrawState(ds)
                 ds.isUnderlineText = false
-                ds.color = ContextCompat.getColor(this@OtpActivity,R.color.light_green)
+                ds.color = ContextCompat.getColor(this@OtpActivity, R.color.light_green)
             }
         }
         span.setSpan(clickableSpan,span.length-13,span.length,SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
