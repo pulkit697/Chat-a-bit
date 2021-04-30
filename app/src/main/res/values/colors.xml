@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="faded_black">#111111</color>
     <color name="background">#ffffff</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="darker_teal_green">#075E54</color>
     <color name="teal_green">#128C7E</color>
     <color name="teal_green_dark">#075E54</color>
     <color name="light_green">#25D366</color>
     <color name="grey">#696969</color>
     <color name="blue">#34B7F1</color>
     <color name="light_grey">#44E8E5E5</color>
+    <color name="sent_message_color">#DCF8C6</color>
+    <color name="received_message_color">#ffffff</color>
+    <color name="chat_background">#ECE5DD</color>
+    <color name="check_mark">#34B7F1</color>
+    <color name="colorPrimaryDark">@color/darker_teal_green</color>
+    <color name="colorPrimary">@color/teal_green_dark</color>
 </resources>

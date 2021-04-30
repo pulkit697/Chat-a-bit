@@ -13,7 +13,7 @@ import com.example.chatapp.R
 import com.example.chatapp.models.EmptyViewHolder
 import com.example.chatapp.models.User
 import com.example.chatapp.models.UserViewHolder
-import com.example.chatapp.ui.ChatAcitivity
+import com.example.chatapp.ui.ChatActivity
 import com.example.chatapp.util.*
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
@@ -66,7 +66,7 @@ class PeopleListFragment : Fragment() {
             override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int, model: User) {
                 if(holder is UserViewHolder)
                     holder.bind(user = model){ name: String, image: String, uid: String ->
-                        val intent = Intent(requireContext(),ChatAcitivity::class.java)
+                        val intent = Intent(requireContext(),ChatActivity::class.java)
                         intent.putExtra(KEY_USER_NAME,name)
                         intent.putExtra(KEY_IMAGE,image)
                         intent.putExtra(KEY_AUTH_UID,uid)

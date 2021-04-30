@@ -13,4 +13,19 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/splash_background_whatsapp</item>
     </style>
+
+    <style name="sentMessageCard">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerSizeBottomRight">2dp</item>
+    </style>
+    <style name="receivedMessageCard">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">2dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerSizeBottomRight">2dp</item>
+    </style>
 </resources>
