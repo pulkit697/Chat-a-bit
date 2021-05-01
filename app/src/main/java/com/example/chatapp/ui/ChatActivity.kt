@@ -2,13 +2,14 @@ package com.example.chatapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatapp.R
-import com.example.chatapp.models.Inbox
-import com.example.chatapp.models.Message
-import com.example.chatapp.models.User
+import com.example.chatapp.adapters.ChatAdapter
+import com.example.chatapp.models.*
 import com.example.chatapp.util.KEY_AUTH_UID
 import com.example.chatapp.util.KEY_IMAGE
 import com.example.chatapp.util.KEY_USER_NAME
+import com.example.chatapp.util.isSameDayAs
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
@@ -41,6 +42,9 @@ class ChatActivity : AppCompatActivity() {
     }
 
     private lateinit var currentUser:User
+    private var messagesList = mutableListOf<ChatEvent>()
+
+    private lateinit var chatAdapter: ChatAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +55,14 @@ class ChatActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 currentUser = it.toObject(User::class.java)!!
             }
+
+        chatAdapter = ChatAdapter(messagesList,mAuthUid)
+        rvChats.apply {
+            layoutManager = LinearLayoutManager(this@ChatActivity)
+            adapter = chatAdapter
+        }
+
+        listenToMessages()
 
         tvFriendNameChatActivity.text = friendName
         Picasso.get().load(friendImage).error(R.drawable.default_avatar).into(ivFriendImageChatActivity)
@@ -74,6 +86,47 @@ class ChatActivity : AppCompatActivity() {
             /* TO BE IMPLEMENTED */
         }
         updateLastMessage(mMsg)
+    }
+
+    private fun markAsRead(){
+        getInbox(friendId,mAuthUid).child("count").setValue(0)
+    }
+
+    private fun listenToMessages()
+    {
+        getMessages(friendId)
+                .orderByKey()
+                .addChildEventListener(object : ChildEventListener{
+                    override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                        addMessage(snapshot.getValue(Message::class.java)!!)
+                    }
+
+                    override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                        /* Do Nothing */
+                    }
+
+                    override fun onChildRemoved(snapshot: DataSnapshot) {
+                        /* Do Nothing */
+                    }
+
+                    override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                        /* Do Nothing */
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        /* Do Nothing */
+                    }
+                })
+    }
+
+    private fun addMessage(msgMap: Message) {
+        val eventBefore = messagesList.lastOrNull()
+        if(eventBefore==null || !eventBefore.sentAt.isSameDayAs(msgMap.sentAt)){
+            messagesList.add(DateHeader(msgMap.sentAt,this))
+        }
+        messagesList.add(msgMap)
+        chatAdapter.notifyItemInserted(messagesList.size-1)
+        rvChats.scrollToPosition(messagesList.size-1)
     }
 
     private fun updateLastMessage(msgMap: Message) {
