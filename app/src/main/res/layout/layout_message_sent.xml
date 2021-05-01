@@ -29,12 +29,12 @@
         app:alignItems="flex_end"
         app:justifyContent="flex_end">
 
-        <TextView
+        <com.vanniktech.emoji.EmojiTextView
             android:id="@+id/tvSentMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Hello"
-            android:textSize="14sp"
+            android:textSize="@dimen/message_text_size"
             android:textColor="@color/black"
             />
         <TextView

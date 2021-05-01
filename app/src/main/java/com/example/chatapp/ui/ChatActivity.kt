@@ -15,6 +15,7 @@ import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import com.vanniktech.emoji.EmojiManager
+import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.ios.IosEmojiProvider
 import kotlinx.android.synthetic.main.activity_chat_box.*
 
@@ -63,6 +64,11 @@ class ChatActivity : AppCompatActivity() {
         }
 
         listenToMessages()
+        getInbox(mAuthUid,friendId).child("count").setValue(0)
+        val emojiPopup = EmojiPopup.Builder.fromRootView(rootview).build(eetMessageChatActivity)
+        ivEmojiButton.setOnClickListener {
+            emojiPopup.toggle()
+        }
 
         tvFriendNameChatActivity.text = friendName
         Picasso.get().load(friendImage).error(R.drawable.default_avatar).into(ivFriendImageChatActivity)
@@ -143,7 +149,7 @@ class ChatActivity : AppCompatActivity() {
                     }
                     value?.let {
                         if(it.from == msgMap.senderId){
-                            inboxMap.count = inboxMap.count+1
+                            inboxMap.count = it.count + 1
                         }
                     }
                     getInbox(friendId,mAuthUid).setValue(inboxMap)

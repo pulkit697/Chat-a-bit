@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue"
         app:cardCornerRadius="5dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp"
         >
         <TextView
             android:id="@+id/tvDateHeader"
@@ -23,6 +25,7 @@
             android:background="@android:color/transparent"
             android:paddingVertical="5dp"
             android:paddingHorizontal="15dp"
+
             />
 
     </com.google.android.material.card.MaterialCardView>
